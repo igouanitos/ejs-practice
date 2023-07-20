@@ -18,12 +18,24 @@ app.use(express.static("public"));
 
 //test
 app.get('/posts/:postId', (req, res) => {
-  
+  var check = false;
+  var postToRender = Object;
   posts.forEach((i)=>{
     if (i.title == req.params.postId){
-      console.log("We have a macht.");
+      check = true;
+      postToRender = i;
     }
   })
+
+  if (check = true){
+    res.render('post', { content : postToRender} )
+  } else{
+    let errorMsg = {
+      title : 404,
+      body : "Couldn't find the url you are looking for."
+    }
+  }
+  
    
 
 })
