@@ -6,7 +6,7 @@
 
 <% content.forEach((i) =>{ %>
     <h1><%= i.title %></h1>
-    <p><%= i.body %></p>
+    <p><%= i.body.substring(1, 100)+"..." %> <a href="/posts/+ <%= i.title %> ">Read more.</a></p>
 <% }) %>
 
 
